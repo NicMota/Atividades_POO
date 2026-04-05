@@ -108,7 +108,7 @@ public class Tabuleiro {
         }
         print();
     }   
-    public void trocar(int a,int b,int i, int j)
+    private void trocar(int a,int b,int i, int j)
     {
         int aux = estado[a][b];
         estado[a][b] = estado[i][j];
@@ -144,43 +144,24 @@ public class Tabuleiro {
 
     public boolean verificar_estado()
     {   
-        if(tamanho == 1)
-        {
-           if(estado[0][0] == 0){
-                System.out.printf("Posicao final: true");
-                return true;
-           }
-        
-        }
-
-        int prox = 0;
+        int count = 0;
         for(int i = 0;i<tamanho_linha;i++)
-        {   
-            for(int j = 0;j<tamanho_linha;j++)
-            {   
-                
-                if(j+1>=tamanho_linha)
-                {   
-                    if(i+1<tamanho_linha)
-                        prox = estado[i+1][0];
-                    else{
-                        continue;
-                    }
-                }else
-                {
-                    prox = estado[i][j+1];
-                }
-                if(estado[i][j] +  1 != prox)
+        {
+            for(int j = 0; j<tamanho_linha;j++)
+            {
+
+                if(estado[i][j]!=count)
                 {
                     System.out.printf("Posicao final: false");
                     return false;
                 }
                     
+                count++;
             }
         }
+        
         System.out.printf("Posicao final: true");
         return true;
-       
     }
 
     
