@@ -12,23 +12,27 @@ public class Main{
             aux.add(tec.nextInt());
         }
 
-
-        int[] estado_inicial = aux.stream()
-                                .mapToInt(Integer::intValue)
-                                .toArray();
+        int n = (int) Math.sqrt(aux.size());
+        int[][] estado_inicial = new int[n][n];
         
        
-        Tabuleiro tab = new Tabuleiro(estado_inicial,aux.size());
-
+        for(int i = 0;i<n;i++)
+        {
+            for(int j = 0;j<n;j++)
+            {
+                estado_inicial[i][j] = aux.get(i*n + j);
+            }
+        }
+        Tabuleiro tab = new Tabuleiro(estado_inicial,aux.size(),n);
+        tab.print();
         char[] movimentos = tec.next().toCharArray();
-
+        
         for(char c : movimentos)
         {
             tab.mover(c);
         }
        
-        tab.print();
-        
+        tab.verificar_estado();
         tec.close();
         
   
