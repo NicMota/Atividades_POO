@@ -5,16 +5,16 @@ public class Main{
 
        
         Scanner tec = new Scanner(System.in);
-        ArrayList<Integer> aux = new ArrayList<Integer>();
+        ArrayList<Integer> aux = new ArrayList<>();
 
         
         while (tec.hasNextInt()) {
             aux.add(tec.nextInt());
         }
-
+        
         int n = (int) Math.sqrt(aux.size());
         int[][] estado_inicial = new int[n][n];
-        
+
        
         for(int i = 0;i<n;i++)
         {
@@ -23,13 +23,14 @@ public class Main{
                 estado_inicial[i][j] = aux.get(i*n + j);
             }
         }
-        Tabuleiro tab = new Tabuleiro(estado_inicial,aux.size(),n);
+        Tabuleiro tab = new Tabuleiro(estado_inicial,n);
         tab.print();
         char[] movimentos = tec.next().toCharArray();
         
         for(char c : movimentos)
-        {
+        {      
             tab.mover(c);
+
         }
        
         tab.verificar_estado();

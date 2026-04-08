@@ -2,13 +2,11 @@
 public class Tabuleiro {
 
     private int estado[][];
-    private int tamanho;
     private int tamanho_linha;
 
-    public Tabuleiro(int[][] estado_inicial,int tamanho, int tamanho_linha)
+    public Tabuleiro(int[][] estado_inicial, int tamanho_linha)
     {
         this.estado = estado_inicial;
-        this.tamanho = tamanho;
         this.tamanho_linha = tamanho_linha;
     }
   
@@ -118,7 +116,7 @@ public class Tabuleiro {
     public void print()
     {
         
-
+         char pipe = '|';
         
         for(int i = 0; i<tamanho_linha;i++)
         {   
@@ -129,9 +127,12 @@ public class Tabuleiro {
             System.out.printf("+\n");
             for(int j = 0;j<tamanho_linha;j++)
             {   
-                System.out.printf("|   %d  ",estado[i][j]);
+                System.out.printf("|%4d  ",estado[i][j]);
+                    
+                
             }
-            System.out.printf("|\n");
+
+            System.out.printf("|\n",pipe);
         }
         for(int a = 0;a<tamanho_linha;a++)
         {

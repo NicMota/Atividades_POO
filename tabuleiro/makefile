@@ -5,4 +5,4 @@ run:
 	java Main
 
 zip: 
-	zip tubeleiro.zip ./* 
+	zip tabuleiro.zip ./* 
